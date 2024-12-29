@@ -23,11 +23,13 @@ extract the original error if needed.
 func do_something() -> ErrorMessage:
 	var err : ErrorMessage = do_something_dangerous()
 	if err != null:
-		return Error.wrap(
+		# Refine the error message and add more context:
+		return ErrorMessage.wrap(
 			err,
 			ERR_BUG,
 			"You have encountered a bug. See the following error message for details."
 		)
+	return null
 ```
 
 ## `ErrorReturn`
@@ -86,3 +88,19 @@ You can also use it for error handling where errors typically don't occur:
 ```gdscript
 Expect.ok(my_signal.connect(my_handler))
 ```
+
+## Developing Momus
+
+If you would like to modify the Momus source code, please note that this project has a non-standard directory layout.
+If you are running Windows, you **must** enable developer mode in Windows and symlink support in Git in order to
+properly clone the repository.
+
+Once you have cloned the repository, make sure to run the following commands *before* opening Godot:
+
+```
+git submodule init
+git submodule update
+```
+
+Now you can open Godot and you should see the [GUT](https://github.com/bitwes/Gut) tab at the bottom for running the
+tests.
