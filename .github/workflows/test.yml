@@ -4,27 +4,4 @@ on:
   pull_request:
 jobs:
   tests:
-    name: ${{ matrix.os }}
-    runs-on: ${{ matrix.os }}
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [ ubuntu-latest, macos-latest ]
-    steps:
-      - name: Checkout
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 #v4.2.2
-        with:
-          submodules: true
-
-      - name: Setup Godot
-        uses: chickensoft-games/setup-godot@46198e5e97e81c09d8001962fdf4ed8c215bcb50 #v2.1.1
-        with:
-          version: 4.3.0
-          use-dotnet: false
-
-      - name: Run GUT
-        run: |
-          godot -d -s --headless --path "$PWD" addons/gut/gut_cmdln.gd -glog=1 -gexit 2>&1 | tee test.log
-          if [ $(grep 'All tests passed!' test.log | wc -l) -ne 1 ]; then
-            exit 1
-          fi
+    uses: abstractionfactory/godot-workflows/.github/workflows/test.yml@main
