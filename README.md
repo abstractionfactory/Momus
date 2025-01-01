@@ -3,6 +3,15 @@
 This library provides error handling data types, such as an error with an error message or return
 types with additional errors, for Godot.
 
+## Installation
+
+![](assets/instructions.svg)
+
+1. Go to the [Releases page](https://github.com/abstractionfactory/Momus/releases) on GitHub
+2. Download the ZIP file for the latest release
+3. Click the "AssetLib" tab in Godot
+4. Click the "Import..." button and import the ZIP file
+
 ## `ErrorMessage`
 
 Momus defines the [`ErrorMessage`](addons/momus/error_message.gd) as the basic type to carry an
