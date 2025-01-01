@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="1280"
+   height="640"
+   viewBox="0 0 338.66666 169.33333"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4 (86a8ad7, 2024-10-11)"
+   sodipodi:docname="social.svg"
+   inkscape:export-filename="social.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="0.85922204"
+     inkscape:cx="771.04633"
+     inkscape:cy="469.02894"
+     inkscape:window-width="2880"
+     inkscape:window-height="1676"
+     inkscape:window-x="-12"
+     inkscape:window-y="-12"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <linearGradient
+       id="linearGradient4"
+       inkscape:collect="always">
+      <stop
+         style="stop-color:#2b2b2b;stop-opacity:1;"
+         offset="0"
+         id="stop4" />
+      <stop
+         style="stop-color:#272727;stop-opacity:1;"
+         offset="1"
+         id="stop5" />
+    </linearGradient>
+    <rect
+       x="256.76403"
+       y="125.09017"
+       width="854.23419"
+       height="166.23825"
+       id="rect1" />
+    <rect
+       x="256.76404"
+       y="125.09017"
+       width="833.28501"
+       height="240.72424"
+       id="rect1-4" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4"
+       id="linearGradient5"
+       x1="107.77676"
+       y1="0.90872544"
+       x2="107.10059"
+       y2="169.04047"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="opacity:1;fill:url(#linearGradient5);fill-opacity:1;stroke:none;stroke-width:0.396875;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
+       id="rect4"
+       width="338.66666"
+       height="169.33333"
+       x="5.0862632e-06"
+       y="2.5431316e-06"
+       ry="0" />
+    <g
+       id="g4">
+      <g
+         id="g2">
+        <path
+           sodipodi:type="star"
+           style="fill:#f39200;fill-opacity:1;stroke:#f39200;stroke-width:0.637;stroke-linejoin:round;stroke-opacity:1;paint-order:markers stroke fill"
+           id="path3"
+           inkscape:flatsided="true"
+           sodipodi:sides="3"
+           sodipodi:cx="0"
+           sodipodi:cy="0"
+           sodipodi:r1="10.818993"
+           sodipodi:r2="5.4094968"
+           sodipodi:arg1="0.52359878"
+           sodipodi:arg2="1.5707963"
+           inkscape:rounded="0"
+           inkscape:randomized="0"
+           d="m 9.3695224,5.4094963 -18.7390449,0 L 4.7621971e-8,-10.818993 Z"
+           inkscape:transform-center-y="-11.173256"
+           transform="matrix(4.1309786,0,0,4.1309786,109.46773,95.839858)" />
+        <path
+           sodipodi:type="star"
+           style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.637;stroke-linejoin:round;stroke-opacity:1;paint-order:markers stroke fill"
+           id="path3-2"
+           inkscape:flatsided="true"
+           sodipodi:sides="3"
+           sodipodi:cx="0"
+           sodipodi:cy="0"
+           sodipodi:r1="10.818993"
+           sodipodi:r2="5.4094968"
+           sodipodi:arg1="0.52359878"
+           sodipodi:arg2="1.5707963"
+           inkscape:rounded="0"
+           inkscape:randomized="0"
+           d="m 9.3695224,5.4094963 -18.7390449,0 L 4.7621971e-8,-10.818993 Z"
+           inkscape:transform-center-y="-10.090265"
+           transform="matrix(3.7305743,0,0,3.7305743,109.46773,95.908925)" />
+        <g
+           id="g3"
+           transform="matrix(9.5892729,0,0,9.5892729,58.864507,52.709609)">
+          <path
+             id="rect1-8"
+             style="fill:#000000;fill-opacity:1;stroke-width:0.637;stroke-linejoin:round;paint-order:markers stroke fill"
+             d="m 3.6272099,4.1607835 1.065678,-0.2453846 0.500392,0.4804968 0.268196,-0.72312 -0.315685,-1.2509882 0.211646,-0.04986 0.349195,1.1364103 0.389029,0.4495306 0.261875,0.5711906 0.645734,0.092378 -0.039239,0.2448887 -0.788303,-0.094974 -0.210676,-0.4313123 -0.302979,0.6472925 -0.279463,0.1670056 -0.520043,0.00941 -0.330713,0.7678496 -0.32286,-0.1014131 0.370767,-0.949664 0.464249,-0.1120011 -0.483442,-0.444415 -0.894866,0.1391526 z"
+             sodipodi:nodetypes="ccccccccccccccccccccccc" />
+          <circle
+             style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.637;stroke-linejoin:round;paint-order:markers stroke fill"
+             id="path1"
+             cx="6.177918"
+             cy="3.3439667"
+             r="0.31274503" />
+          <rect
+             style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.637;stroke-linejoin:round;paint-order:markers stroke fill"
+             id="rect2"
+             width="2.848386"
+             height="0.1539668"
+             x="3.5508583"
+             y="6.1923523" />
+          <path
+             id="rect3"
+             style="fill:#000000;fill-opacity:1;stroke-width:0.637;stroke-linejoin:round;paint-order:markers stroke fill"
+             d="m 5.4311109,5.8595573 0.0034,0.07204 -0.678743,-3e-7 z"
+             sodipodi:nodetypes="cccc" />
+          <path
+             id="rect3-4"
+             style="fill:#000000;fill-opacity:1;stroke-width:0.637;stroke-linejoin:round;paint-order:markers stroke fill"
+             d="m 5.4162109,5.648692 0.0183,0.069759 -0.663914,0.1411063 z"
+             sodipodi:nodetypes="cccc" />
+          <path
+             id="rect3-4-7"
+             style="fill:#000000;fill-opacity:1;stroke-width:0.637;stroke-linejoin:round;paint-order:markers stroke fill"
+             d="m 5.2858669,5.3811299 0.04168,0.058856 -0.571779,0.3657335 z"
+             sodipodi:nodetypes="cccc" />
+        </g>
+      </g>
+      <text
+         xml:space="preserve"
+         transform="matrix(0.26458333,0,0,0.26458333,89.889293,8.2552712)"
+         id="text1"
+         style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:85.3333px;line-height:1.6;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI Semi-Bold';text-align:start;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect1);display:inline;fill:#f39200;fill-opacity:1;stroke:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"><tspan
+           x="256.76367"
+           y="216.88752"
+           id="tspan4"><tspan
+             style="font-weight:bold;-inkscape-font-specification:'Segoe UI Bold'"
+             id="tspan2">Momus</tspan></tspan></text>
+      <text
+         xml:space="preserve"
+         transform="matrix(0.26458333,0,0,0.26458333,91.642157,38.004554)"
+         id="text1-1"
+         style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:42.6667px;line-height:1.6;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI Semi-Bold';text-align:start;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect1-4);display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.50047;stroke-linecap:round;stroke-linejoin:round;paint-order:markers fill stroke"><tspan
+           x="256.76367"
+           y="170.98873"
+           id="tspan5">The missing
+</tspan><tspan
+           x="256.76367"
+           y="239.25546"
+           id="tspan6">error handling library
+</tspan><tspan
+           x="256.76367"
+           y="307.52218"
+           id="tspan7">for Godot </tspan></text>
+    </g>
+  </g>
+</svg>
