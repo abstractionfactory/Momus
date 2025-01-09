@@ -154,6 +154,12 @@ static func for_signals(sigs: Array[Signal]) -> Promise:
 		promises[i] = SignalPromise.new(sigs[i])
 	return MultiPromise.new(promises)
 
+## Returns a promise that immediately resolves.
+static func empty() -> Promise:
+	var prom := Promise.new()
+	prom.resolve()
+	return prom
+
 #endregion
 
 #region Signals

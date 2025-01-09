@@ -7,6 +7,9 @@ var _remaining := 0
 var _errors : Array[ErrorMessage] = []
 
 func _init(promises: Array[Promise]) -> void:
+	if promises.size() == 0:
+		resolve()
+		return
 	_remaining = promises.size()
 	for promise in promises:
 		var prom := promise
@@ -21,4 +24,3 @@ func _init(promises: Array[Promise]) -> void:
 					# TODO multi-errors
 					reject(ErrorMessage.wrap(_errors[0]))
 		promise._done.connect(handler, CONNECT_ONE_SHOT)
-	
