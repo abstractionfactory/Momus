@@ -1,4 +1,5 @@
 @tool
+@icon("res://addons/momus/icons/momus.svg")
 ## This class is a promise that resolves when a signal is emitted.
 class_name SignalPromise extends Promise
 

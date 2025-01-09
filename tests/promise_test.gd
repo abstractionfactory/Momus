@@ -8,15 +8,15 @@ func test_promise_callable() -> void:
 	
 	var prom := Promise.new(work)
 	watch_signals(prom)
-	assert_signal_not_emitted(prom, "done")
-	assert_signal_not_emitted(prom, "fulfilled")
+	assert_signal_not_emitted(prom, "_done")
+	assert_signal_not_emitted(prom, "_fulfilled")
 	await get_tree().process_frame
-	assert_signal_not_emitted(prom, "done")
-	assert_signal_not_emitted(prom, "fulfilled")
+	assert_signal_not_emitted(prom, "_done")
+	assert_signal_not_emitted(prom, "_fulfilled")
 	await get_tree().process_frame
 	await get_tree().process_frame
-	assert_signal_emitted(prom, "done")
-	assert_signal_emitted(prom, "fulfilled")
+	assert_signal_emitted(prom, "_done")
+	assert_signal_emitted(prom, "_fulfilled")
 
 func test_promise_chaining() -> void:
 	var work := func(resolve: Callable, _reject: Callable) -> void:
@@ -32,24 +32,24 @@ func test_promise_chaining() -> void:
 	var prom2 := prom1.then(work2)
 	watch_signals(prom1)
 	watch_signals(prom2)
-	assert_signal_not_emitted(prom1, "done")
-	assert_signal_not_emitted(prom1, "fulfilled")
-	assert_signal_not_emitted(prom2, "done")
-	assert_signal_not_emitted(prom2, "fulfilled")
+	assert_signal_not_emitted(prom1, "_done")
+	assert_signal_not_emitted(prom1, "_fulfilled")
+	assert_signal_not_emitted(prom2, "_done")
+	assert_signal_not_emitted(prom2, "_fulfilled")
 	await get_tree().process_frame
-	assert_signal_not_emitted(prom1, "done")
-	assert_signal_not_emitted(prom1, "fulfilled")
-	assert_signal_not_emitted(prom2, "done")
-	assert_signal_not_emitted(prom2, "fulfilled")
-	await get_tree().process_frame
-	await get_tree().process_frame
-	assert_signal_emitted(prom1, "done")
-	assert_signal_emitted(prom1, "fulfilled")
-	assert_signal_not_emitted(prom2, "done")
-	assert_signal_not_emitted(prom2, "fulfilled")
+	assert_signal_not_emitted(prom1, "_done")
+	assert_signal_not_emitted(prom1, "_fulfilled")
+	assert_signal_not_emitted(prom2, "_done")
+	assert_signal_not_emitted(prom2, "_fulfilled")
 	await get_tree().process_frame
 	await get_tree().process_frame
-	assert_signal_emitted(prom1, "done")
-	assert_signal_emitted(prom1, "fulfilled")
-	assert_signal_emitted(prom2, "done")
-	assert_signal_emitted(prom2, "fulfilled")
+	assert_signal_emitted(prom1, "_done")
+	assert_signal_emitted(prom1, "_fulfilled")
+	assert_signal_not_emitted(prom2, "_done")
+	assert_signal_not_emitted(prom2, "_fulfilled")
+	await get_tree().process_frame
+	await get_tree().process_frame
+	assert_signal_emitted(prom1, "_done")
+	assert_signal_emitted(prom1, "_fulfilled")
+	assert_signal_emitted(prom2, "_done")
+	assert_signal_emitted(prom2, "_fulfilled")

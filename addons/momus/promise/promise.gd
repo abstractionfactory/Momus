@@ -1,4 +1,5 @@
 @tool
+@icon("res://addons/momus/icons/momus.svg")
 ## A promise is a future event that can succeed or fail. It is similar to how JavaScript implements
 ## promises.
 ##
@@ -28,12 +29,58 @@ func _init(callable: Callable = Callable()) -> void:
 		else:
 			callable.call()
 
+## Use this function to await either fulfillment or rejection.
+##
+## Example:
+##
+## [codeblock]
+## var some_promise := Promise.new()
+## var result : ErrorReturn = await some_promise.done()
+## if result.is_error():
+##     print(result.get_error())
+## else:
+##     print(result.get_value())
+## [/codeblock]
+func done() -> ErrorReturn:
+	if is_done():
+		return ErrorReturn.new(_value, _error)
+	await _done
+	return ErrorReturn.new(_value, _error)
+
+## Use this function to await a fulfilment.
+##
+## Example:
+##
+## [codeblock]
+## var some_promise := Promise.new()
+## var value : Variant = await some_promise.fulfilled()
+## [/codeblock]
+func fulfilled() -> Variant:
+	if is_fulfilled():
+		return _value
+	await _fulfilled
+	return _value
+
+## Use this function to await a rejection.
+##
+## Example:
+##
+## [codeblock]
+## var some_promise := Promise.new()
+## var error_message := await some_promise.rejected()
+## [/codeblock]
+func rejected() -> ErrorMessage:
+	if is_rejected():
+		return _error
+	await _rejected
+	return _error
+
 ## Returns true if the promise is done.
 func is_done() -> bool:
 	return _state != State.RUNNING
 
 ## Returns true if the promise resolved successfully.
-func is_resolved() -> bool:
+func is_fulfilled() -> bool:
 	return _state == State.RUNNING
 
 ## Returns true if the promise is rejected.
@@ -66,14 +113,14 @@ func then(on_fulfilled: Callable = Callable(), on_rejected := Callable()) -> Pro
 	var result := Promise.new()
 	if !on_fulfilled.is_null():
 		Expect.that(on_fulfilled.get_argument_count() <= 1, "then() expects a function with zero or one arguments.")
-		fulfilled.connect(_get_handler(on_fulfilled, result), CONNECT_ONE_SHOT)
+		_fulfilled.connect(_get_handler(on_fulfilled, result), CONNECT_ONE_SHOT)
 	else:
-		fulfilled.connect(result.resolve, CONNECT_ONE_SHOT)
+		_fulfilled.connect(result.resolve, CONNECT_ONE_SHOT)
 	if !on_rejected.is_null():
 		Expect.that(on_rejected.get_argument_count() <= 1, "then() expects a function with zero or one arguments.")
-		rejected.connect(_get_handler(on_rejected, result), CONNECT_ONE_SHOT)
+		_rejected.connect(_get_handler(on_rejected, result), CONNECT_ONE_SHOT)
 	else:
-		rejected.connect(result.reject, CONNECT_ONE_SHOT)
+		_rejected.connect(result.reject, CONNECT_ONE_SHOT)
 	return result
 
 ## Set up a callback function when an error happens. This function is identical to calling 
@@ -111,25 +158,22 @@ static func for_signals(sigs: Array[Signal]) -> Promise:
 
 #region Signals
 
-## Indicates that the [Promise] was resolved or rejected. This signal should never be emitted 
-## externally.
-signal done(error: ErrorMessage)
-## Indicates that the [Promise] was completed successfully. This signal should never be emitted 
-## externally.
-signal fulfilled(result: Variant)
-## Indicates that the [Promise] was rejected with an error. This signal should never be emitted 
-## externally.
-signal rejected(error: ErrorMessage)
+signal _done()
+signal _fulfilled()
+signal _rejected()
 
 #endregion
 
 #region Private
 
 func _get_handler(target: Callable, promise: Promise) -> Callable:
-	return func(res: Variant) -> void:
+	return func() -> void:
 		var fulfilled_result: Variant
 		if target.get_argument_count() == 1:
-			fulfilled_result = await target.call(res)
+			if is_fulfilled():
+				fulfilled_result = await target.call(_value)
+			else:
+				fulfilled_result = await target.call(_error)
 		elif target.get_argument_count() == 0:
 			fulfilled_result = await target.call()
 		if fulfilled_result is ErrorReturn:
@@ -161,12 +205,12 @@ var _state: State = State.RUNNING:
 		_state = new_state
 		match _state:
 			State.FULFILLED:
-				fulfilled.emit(_value)
-				done.emit(null)
+				_fulfilled.emit()
+				_done.emit()
 			State.REJECTED:
 				Expect.that(_error != null, "Cannot reject a promise without the error set.")
-				rejected.emit(_error)
-				done.emit(_error)
+				_rejected.emit()
+				_done.emit()
 
 var _value: Variant = null:
 	set(new_value):
