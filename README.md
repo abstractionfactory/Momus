@@ -110,8 +110,33 @@ the result later. You can do the following:
 ```gdscript
 func foo() -> Promise:
 	var run_async := func(resolve: Callable, reject: Callable) -> void:
-		
+		# Do something async
+		resolve(result_of_the_async)
 	return Promise.new()
+```
+
+On the calling side you can now do this:
+
+```gdscript
+var prom := foo()
+var result := await prom.done()
+if result.is_error():
+	print(result.get_error())
+else:
+	print(result.get_value())
+```
+
+You can also chain functions:
+
+```gdscript
+var other_handler := func() -> void:
+	## Do something here
+var prom := foo().then(other_handler)
+var result := await prom.done()
+if result.is_error():
+	print(result.get_error())
+else:
+	print(result.get_value())
 ```
 
 ## Developing Momus
