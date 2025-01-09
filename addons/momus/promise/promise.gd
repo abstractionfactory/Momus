@@ -108,19 +108,31 @@ func reject(error: ErrorMessage) -> void:
 	_error = error
 
 ## Set up functions to be called when the promise is fulfilled or rejected. This function
-## returns a new [Promise] which is resolved if the handler functions return.
+## returns a new [Promise] which is resolved if the handler functions return. If the [Promise]
+## is already resolved, the callbacks are called immediately.
 func then(on_fulfilled: Callable = Callable(), on_rejected := Callable()) -> Promise:
 	var result := Promise.new()
-	if !on_fulfilled.is_null():
-		Expect.that(on_fulfilled.get_argument_count() <= 1, "then() expects a function with zero or one arguments.")
-		_fulfilled.connect(_get_handler(on_fulfilled, result), CONNECT_ONE_SHOT)
+	if is_fulfilled():
+		if !on_fulfilled.is_null():
+			_get_handler(on_fulfilled, result).call()
+		else:
+			result.resolve(_value)
+	elif is_rejected():
+		if !on_rejected.is_null():
+			_get_handler(on_rejected, result).call()
+		else:
+			result.reject(_error)
 	else:
-		_fulfilled.connect(result.resolve, CONNECT_ONE_SHOT)
-	if !on_rejected.is_null():
-		Expect.that(on_rejected.get_argument_count() <= 1, "then() expects a function with zero or one arguments.")
-		_rejected.connect(_get_handler(on_rejected, result), CONNECT_ONE_SHOT)
-	else:
-		_rejected.connect(result.reject, CONNECT_ONE_SHOT)
+		if !on_fulfilled.is_null():
+			Expect.that(on_fulfilled.get_argument_count() <= 1, "then() expects a function with zero or one arguments.")
+			_fulfilled.connect(_get_handler(on_fulfilled, result), CONNECT_ONE_SHOT)
+		else:
+			_fulfilled.connect(result.resolve, CONNECT_ONE_SHOT)
+		if !on_rejected.is_null():
+			Expect.that(on_rejected.get_argument_count() <= 1, "then() expects a function with zero or one arguments.")
+			_rejected.connect(_get_handler(on_rejected, result), CONNECT_ONE_SHOT)
+		else:
+			_rejected.connect(result.reject, CONNECT_ONE_SHOT)
 	return result
 
 ## Set up a callback function when an error happens. This function is identical to calling 
