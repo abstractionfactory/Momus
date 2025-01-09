@@ -98,6 +98,22 @@ You can also use it for error handling where errors typically don't occur:
 Expect.ok(my_signal.connect(my_handler))
 ```
 
+## `Promise`
+
+When you need to chain together multiple events or multiple signals, promises come in handy as a 
+means of synchronization. Promises in Momus behave similar to
+[JavaScript promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise).
+
+Assume you have a function needing to indicate that it will start an asynchronous process and return
+the result later. You can do the following:
+
+```gdscript
+func foo() -> Promise:
+	var run_async := func(resolve: Callable, reject: Callable) -> void:
+		
+	return Promise.new()
+```
+
 ## Developing Momus
 
 If you would like to modify the Momus source code, please note that this project has a non-standard directory layout.
